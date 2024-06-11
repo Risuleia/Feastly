@@ -1,0 +1,119 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* base */
+:root {
+    --bg-clr-1: light-dark(#d2deba, #000000e4);
+    --bg-clr-2: #41414198;
+    --bg-clr-3: #655e56;
+    --nav-clr: #ffffff33;
+    --txt-clr-1: #f0f0f0;
+    --txt-clr-2: #f1efef;
+    --txt-clr-3: #dff1f6e7;
+    --accent-clr-1: #bcbbbb;
+    --accent-clr-2: #1a191972;
+    --accent-clr-3: #838383c5;
+    --accent-clr-4: #ffffffd5;
+    --accent-clr-5: #2f2e2e72;
+    --accent-clr-6: #ff9794d5;
+    --accent-clr-7: #f1d0af;
+    --btn-clr-1: #75ed75;
+    --btn-clr-2: #ef6363;
+    --txt-1: Comfortaa;
+    --txt-2: Montserrat;
+    --carousel-padding: 4rem;
+}
+body {
+    background: var(--bg-clr-1);
+    font-family: var(--txt-2);
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+#root {
+    min-height: 100vh;
+}
+img {
+    pointer-events: none !important;
+}
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+button {
+    outline: none;
+    margin: none;
+    padding: none;
+    border: none;
+}
+::selection {
+    background-color: var(--accent-clr-3);
+}
+[select="false"], [select="false"] * {
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+}
+[data-draggable="true"] {
+    -webkit-user-drag: element !important;
+}
+[animate='false'], [animate='false'] * {
+    animation: none !important;
+}
+
+.\@container {
+    container-type: inline-size;
+}
+
+::-webkit-scrollbar {
+    width: 3.5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-clr-3);
+    border-radius: 1ex;
+}
+::-webkit-scrollbar-thumb:active,
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-clr-1);
+}
+
+/* main */
+#main {
+    margin-top: 4%;
+    /* padding: 0 4rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+section {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.2s reverse;
+}
+section.visible .heading-container {
+    animation: popDown 1.2s linear forwards;
+}
+
+/* media queries */
+@media all and (max-width: 575px) {
+    #main {
+        padding: 0 1rem;
+    }
+}
+@media all and (max-width: 767px) and (min-width: 576px) {
+    #main {
+        padding: 0 2rem;
+    }
+}
