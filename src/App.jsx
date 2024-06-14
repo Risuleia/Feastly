@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-import Nav from './assets/Structures/Nav'
+import Nav from './assets/Structures/Nav/Nav'
 import AnimatedRoutes from './assets/AnimatedRoutes'
 
 function App() {

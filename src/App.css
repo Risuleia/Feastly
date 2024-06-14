@@ -3,18 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
 
 /* base */
 :root {
-    --bg-clr-1: light-dark(#d2deba, #000000e4);
+    --bg-clr-1: light-dark(#a3af8a, #000000e4);
     --bg-clr-2: #41414198;
     --bg-clr-3: #655e56;
     --nav-clr: #ffffff33;
     --txt-clr-1: #f0f0f0;
     --txt-clr-2: #f1efef;
     --txt-clr-3: #dff1f6e7;
-    --accent-clr-1: #bcbbbb;
-    --accent-clr-2: #1a191972;
+    --accent-clr-1: #b5e970;
+    --accent-clr-2: #94eedf;
     --accent-clr-3: #838383c5;
     --accent-clr-4: #ffffffd5;
     --accent-clr-5: #2f2e2e72;
@@ -24,6 +25,7 @@
     --btn-clr-2: #ef6363;
     --txt-1: Comfortaa;
     --txt-2: Montserrat;
+    --txt-3: Lovers Quarrel;
     --carousel-padding: 4rem;
 }
 body {
@@ -32,6 +34,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    color-scheme: light;
 }
 #root {
     min-height: 100vh;
@@ -66,6 +69,21 @@ button {
     animation: none !important;
 }
 
+[maskable='true'] {
+    display: inline;
+    position: relative;
+}
+[maskable='true']::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--accent-clr-1);
+    animation: shift 1s cubic-bezier(0.19, 1, 0.22, 1) normal forwards running 1;
+}
+
 .\@container {
     container-type: inline-size;
 }
@@ -87,7 +105,6 @@ button {
 
 /* main */
 #main {
-    margin-top: 4%;
     /* padding: 0 4rem; */
     display: flex;
     align-items: center;
@@ -106,14 +123,66 @@ section.visible .heading-container {
     animation: popDown 1.2s linear forwards;
 }
 
-/* media queries */
-@media all and (max-width: 575px) {
-    #main {
-        padding: 0 1rem;
+/* animations */
+@keyframes border-anim {
+    0% {
+        background-image: linear-gradient(90deg, transparent 39%, var(--txt-clr-2) 40%, var(--txt-clr-2) 60%, transparent 61%);
+    }
+    10% {
+        background-image: linear-gradient(90deg, transparent 34%, var(--txt-clr-2) 35%, var(--txt-clr-2) 65%, transparent 66%);
+    }
+    20% {
+        background-image: linear-gradient(90deg, transparent 29%, var(--txt-clr-2) 30%, var(--txt-clr-2) 70%, transparent 71%);
+    }
+    30% {
+        background-image: linear-gradient(90deg, transparent 24%, var(--txt-clr-2) 25%, var(--txt-clr-2) 75%, transparent 76%);
+    }
+    40% {
+        background-image: linear-gradient(90deg, transparent 19%, var(--txt-clr-2) 20%, var(--txt-clr-2) 80%, transparent 81%);
+    }
+    50% {
+        background-image: linear-gradient(90deg, transparent 14%, var(--txt-clr-2) 15%, var(--txt-clr-2) 85%, transparent 86%);
+    }
+    60% {
+        background-image: linear-gradient(90deg, transparent 9%, var(--txt-clr-2) 10%, var(--txt-clr-2) 90%, transparent 91%);
+    }
+    70% {
+        background-image: linear-gradient(90deg, transparent 14%, var(--txt-clr-2) 15%, var(--txt-clr-2) 85%, transparent 86%);
+    }
+    80% {
+        background-image: linear-gradient(90deg, transparent 19%, var(--txt-clr-2) 20%, var(--txt-clr-2) 80%, transparent 81%);
+    }
+    90% {
+        background-image: linear-gradient(90deg, transparent 24%, var(--txt-clr-2) 25%, var(--txt-clr-2) 75%, transparent 76%);
+    }
+    100% {
+        background-image: linear-gradient(90deg, transparent 29%, var(--txt-clr-2) 30%, var(--txt-clr-2) 70%, transparent 71%);
     }
 }
-@media all and (max-width: 767px) and (min-width: 576px) {
-    #main {
-        padding: 0 2rem;
+
+@keyframes shift {
+    0% {
+        right: 0;
+        width: 0;
     }
+    50% {
+        right: 0;
+        width: 100%;
+    }
+    100% {
+        right: 100%;
+        width: 0;
+    }
+}
+
+/* media queries */
+@media all and (max-width: 575px) {
+    /* #main {
+        padding: 0 1rem;
+    } */
+}
+@media all and (max-width: 767px) and (min-width: 576px) {
+    /* #main {
+        padding: 0 2rem;
+    } */
 }

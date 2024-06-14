@@ -1,0 +1,32 @@
+{
+    "short_name": "Feastly",
+    "name": "Feastly",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "logo.png",
+            "type": "image/png",
+            "sizes": "1080x1080"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "categories": [
+        "recipes",
+        "recipe",
+        "food",
+        "foods",
+        "cookbook",
+        "flavor",
+        "flavors",
+        "flavour",
+        "flavours"
+    ],
+    "description": "The largest catalogue for recipes!"
+}

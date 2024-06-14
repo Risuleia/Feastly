@@ -1,9 +1,61 @@
 import React from 'react'
 
 function Recipes() {
-  return (
-    <div>Recipes</div>
-  )
+    return (
+        <motion.div
+            id='recipes'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
+            <div className="home-banner" select="false">
+                <div className="banner-part">
+                    <div className="banner-image">
+                        <img src={bannerImg}  />
+                    </div>
+                </div>
+                <div className="banner-text">
+                    <span>The <span className='underlined' maskable="true">largest</span> catalogue for <Link to='/recipes'>recipes</Link>!</span>
+                </div>
+            </div>
+            <div className="best-picks-section">
+                <div className="thumbnails-part">
+                    {[1,2,3,4,5,6].map(item => (
+                        <div className="item-thumbnail">
+                            {item.toString()}
+                        </div>
+                    ))}
+                </div>
+                <div className="capsules-part">
+                    <div className="capsule-scroll">
+                        {[1,2,3,4,5,6].map(item => (
+                            <div className="item-capsule">
+                                {item.toString()}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="what-can-you-make-section">
+                <div className="section-text">
+                    <div className="section-main-text">Got your ingredients? Something <span className="underlined">special</span>?</div>
+                    <div className="section-sub-text">We got you covered on that!</div>
+                    <div className='section-main-link'>
+                        Let's see
+                        <Link to='what-can-i-make'>
+                            what you can make
+                            <span className="pulse"></span>
+                            <span className="material-symbols-rounded click-icon">swipe_down</span>
+                        </Link>
+                    </div>
+                    <div className="section-tertiary-text">Time to turn those ingredients into something delicious !</div>
+                </div>
+                <div className="section-image">
+                    <img src={openFridge} alt="fridge" />
+                </div>
+            </div>
+        </motion.div>
+    )
 }
 
 export default Recipes
