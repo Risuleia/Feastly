@@ -8,6 +8,7 @@ import openFridge from '../../images/openFridge.svg'
 import '../Styles/Home.css'
 
 function Home() {
+
     return (
         <motion.div
             id='home'
@@ -43,7 +44,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="what-can-you-make-section">
+            <div className="what-can-you-make-section" select="false">
                 <div className="section-text">
                     <div className="section-main-text">Got your ingredients? Something <span className="underlined">special</span>?</div>
                     <div className="section-sub-text">We got you covered on that!</div>
@@ -55,7 +56,7 @@ function Home() {
                             <span className="material-symbols-rounded click-icon">swipe_down</span>
                         </Link>
                     </div>
-                    <div className="section-tertiary-text">Time to turn those ingredients into something delicious !</div>
+                    <p className="section-tertiary-text"><span>Time to turn those ingredients into something delicious !</span></p>
                 </div>
                 <div className="section-image">
                     <img src={openFridge} alt="fridge" />

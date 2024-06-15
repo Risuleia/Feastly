@@ -6,7 +6,7 @@ import navigationonroutechange from "../../../Functions/NavigationOnRouteChange.
 
 import logo from '../../logoFull.svg'
 
-import './Nav.css'
+import './Nav.styles.css'
 
 function Nav() {
 

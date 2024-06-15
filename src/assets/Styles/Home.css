@@ -20,6 +20,7 @@
     background: linear-gradient(45deg, #1c160f, #797f54 90%);
     align-self: stretch;
     position: absolute;
+    overflow: hidden;
     mask: linear-gradient(
         to top,
         transparent,
@@ -63,7 +64,7 @@
     object-fit: cover;
     height: 100%;
     filter: brightness(.85);
-    animation: popInLeft 500ms ease-in forwards;
+    animation: popInLeft 800ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 .home-banner .banner-text {
@@ -258,7 +259,15 @@
     line-height: 1;
     opacity: .8;
     font-family: var(--txt-3);
-    color: var(--accent-clr-1);
+}
+.what-can-you-make-section .section-text .section-tertiary-text > span {
+    color: transparent;
+    position: relative;
+    background-clip: text !important;
+    background: linear-gradient(90deg, var(--accent-clr-1) 100%, transparent 0);
+    background-repeat: no-repeat;
+    animation: typewriterAnim 1.2s linear forwards;
+    animation-timing-function: steps(57);
 }
 
 /* animations */
@@ -276,6 +285,14 @@
     }
     100% {
         transform: translateX(0)
+    }
+}
+@keyframes typewriterAnim {
+    from {
+        background-size: 0% 100%;
+    }
+    to {
+        background-size: 100% 100%;
     }
 }
 

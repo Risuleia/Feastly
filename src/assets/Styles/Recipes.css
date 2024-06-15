@@ -1,0 +1,384 @@
+#recipes {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipes-banner {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-bottom: 4rem;
+}
+.recipes-banner .banner-part {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: linear-gradient(45deg, #1c160f, #797f54 90%);
+    align-self: stretch;
+    position: absolute;
+    overflow: hidden;
+    mask: linear-gradient(
+        to top,
+        transparent,
+        white 45%
+    );
+    -webkit-mask: linear-gradient(
+        to top,
+        transparent,
+        white 45%
+    );
+}
+.recipes-banner .banner-part::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(45deg, #1d0c03, #47382d 75%);
+    z-index: 8;
+    clip-path: polygon(100% 0, 100% 20%, 31% 100%, 0 100%, 30% 0);
+    mask: linear-gradient(
+        var(--masking-angle, 0deg),
+        transparent,
+        white 10%
+    );
+    -webkit-mask: linear-gradient(
+        var(--masking-angle, 0deg),
+        transparent,
+        white 10%
+    );
+}
+.recipes-banner .banner-part .banner-image {
+    display: flex;
+    position: absolute;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+.recipes-banner .banner-part .banner-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(.85);
+    animation: popInLeft 800ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.recipes-banner .banner-text {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 10;
+    backdrop-filter: blur(2.5px);
+    background: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.348));
+}
+.recipes-banner .banner-text span {
+    width: 50%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: var(--txt-1);
+    font-size: 6vmax;
+    line-height: 1.3;
+    filter: opacity(0.8);
+}
+.recipes-banner .banner-text .move-down-icon {
+    transform: rotate(90deg);
+    font-size: 6rem;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2rem;
+    background: none;
+    color: var(--txt-clr-3);
+    cursor: pointer;
+    padding: 1rem;
+    text-shadow: 8px -5px 18px black;
+    transition: all 350ms ease-in-out;
+}
+.recipes-banner .banner-text .move-down-icon:hover,
+.recipes-banner .banner-text .move-down-icon:active,
+.recipes-banner .banner-text .move-down-icon:focus {
+    transform: rotate(90deg) translateX(-1rem);
+    filter: brightness(1.2);
+    transition: all 350ms ease-in-out;
+    border-radius: 100%;
+}
+
+.recipes-banner .banner-text span.underlined {
+    background: linear-gradient(to right, rgb(181, 233, 112), rgb(148, 238, 223));
+    background-clip: text;
+    color: #ffffff3e;
+}
+.recipes-banner .banner-text span.underlined:nth-child(2) {
+    background: linear-gradient(to left, rgb(112, 233, 205), rgb(184, 148, 238));
+    background-clip: text;
+    color: #ffffff3e;
+}
+.recipes-banner .banner-text span.underlined::after {
+    animation-delay: 450ms !important;
+}
+.recipes-banner .banner-text a {
+    color: inherit;
+    text-decoration: underline !important;
+    transition: color 250ms ease-in;
+}
+.recipes-banner .banner-text a:hover,
+.recipes-banner .banner-text a:focus {
+    color: var(--accent-clr-2);
+    transition: color 250ms ease-in;
+}
+
+.best-picks-section {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 4rem;
+}
+.best-picks-section .thumbnails-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+.best-picks-section .thumbnails-part .item-thumbnail {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: #ccc;
+}
+.best-picks-section .capsules-part {
+    display: flex;
+    width: 100%;
+    height: 430px;
+    flex-direction: column;
+    /* background-color: red; */
+    overflow-y: scroll;
+    position: relative;
+}
+.best-picks-section .capsules-part::-webkit-scrollbar {
+    width: 0;
+}
+.best-picks-section .capsules-part .capsule-scroll {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    gap: 1.2rem;
+}
+.best-picks-section .capsules-part .item-capsule {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 430px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #ccc;
+}
+
+.what-can-you-make-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    padding-bottom: 1rem;
+    background: linear-gradient(37deg, #a57373, #a3af8a);
+}
+.what-can-you-make-section .section-image {
+    display: inline-flex;
+    width: 50%;
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 25%
+    );
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 25%
+    );
+}
+.what-can-you-make-section .section-image img {
+    object-fit: cover;
+    width: 100%;
+}
+.what-can-you-make-section .section-text {
+    display: inline-flex;
+    flex-direction: column;
+    width: 50%;
+}
+.what-can-you-make-section .section-text .section-main-text {
+    font-size: 5vmin;
+}
+.what-can-you-make-section .section-text .section-main-text .underlined {
+    text-decoration: underline;
+    text-underline-offset: .6rem;
+}
+.what-can-you-make-section .section-text .section-sub-text {
+    font-size: 4.5vmin;
+    opacity: .8;
+}
+.what-can-you-make-section .section-text .section-main-link {
+    display: inline-flex;
+    font-size: 5.5vmin;
+    gap: .8rem;
+    margin-bottom: 2rem;
+}
+.what-can-you-make-section .section-text .section-main-link a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background: linear-gradient(-45deg, var(--accent-clr-1), var(--accent-clr-2));
+    padding: 0 1.2rem;
+    color: #322828;
+    border-radius: 50px;
+    font-family: var(--txt-1);
+    position: relative;
+    z-index: 2;
+    gap: .8rem;
+}
+.what-can-you-make-section .section-text .section-main-link a .click-icon {
+    display: inline-flex;
+    font-size: 2.2rem;
+    line-height: 1;
+    z-index: 2;
+    transform: rotate(35deg);
+    transform-origin: center center;
+    transition: transform 400ms cubic-bezier(0.12, 0.83, 0.98, 0.94);
+}
+.what-can-you-make-section .section-text .section-main-link a:hover .click-icon {
+    transform: rotate(0);
+    transition: transform 400ms cubic-bezier(0.12, 0.83, 0.98, 0.94);
+}
+.what-can-you-make-section .section-text .section-main-link a .pulse {
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(-45deg, var(--accent-clr-1), var(--accent-clr-2));
+    position: absolute;
+    top: 0;
+    right: 5%;
+    z-index: 1;
+    border-radius: 100px;
+    animation: pulse 1.2s infinite;
+    backdrop-filter: blur(5px);
+    transform-origin: center center;
+}
+.what-can-you-make-section .section-text .section-tertiary-text {
+    font-size: 9vmin;
+    line-height: 1;
+    opacity: .8;
+    font-family: var(--txt-3);
+}
+.what-can-you-make-section .section-text .section-tertiary-text > span {
+    color: transparent;
+    position: relative;
+    background-clip: text !important;
+    background: linear-gradient(90deg, var(--accent-clr-1) 100%, transparent 0);
+    background-repeat: no-repeat;
+    animation: typewriterAnim 1.2s linear forwards;
+    animation-timing-function: steps(57);
+}
+
+/* animations */
+@keyframes popInLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes popInRight {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes typewriterAnim {
+    from {
+        background-size: 0% 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+/* media queries */
+@media all and (max-width: 575px) {
+    .recipes-banner .banner-text {
+        backdrop-filter: blur(1.1px) brightness(.9);
+    }
+    .recipes-banner .banner-text span {
+        font-size: 10vmax;
+        /* backdrop-filter: brightness(.6); */
+        width: 100%;
+    }
+    .what-can-you-make-section {
+        flex-direction: column-reverse;
+        padding: 2rem 0 0 0;
+    }
+    .what-can-you-make-section .section-image {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .what-can-you-make-section .section-text {
+        width: 100%;
+        padding: 2rem;
+        z-index: 2;
+    }
+    .what-can-you-make-section .section-text .section-main-link {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media all and (max-width: 767px) and (min-width: 576px) {
+    .recipes-banner .banner-text {
+        backdrop-filter: blur(1.1px) brightness(.9);
+    }
+    .recipes-banner .banner-text span {
+        font-size: 10vmax;
+        width: 100%;
+    }
+    .what-can-you-make-section {
+        flex-direction: column-reverse;
+        padding: 2rem 0 0 0;
+    }
+    .what-can-you-make-section .section-image {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .what-can-you-make-section .section-text {
+        width: 100%;
+        padding: 2rem;
+        z-index: 2;
+    }
+    .what-can-you-make-section .section-text .section-main-link {
+        flex-direction: column;
+        gap: 0;
+    }
+}

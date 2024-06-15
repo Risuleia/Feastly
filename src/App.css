@@ -16,9 +16,9 @@
     --txt-clr-3: #dff1f6e7;
     --accent-clr-1: #b5e970;
     --accent-clr-2: #94eedf;
-    --accent-clr-3: #838383c5;
-    --accent-clr-4: #ffffffd5;
-    --accent-clr-5: #2f2e2e72;
+    --accent-clr-3: #9ebe7ec5;
+    --accent-clr-4: #405f26d5;
+    --accent-clr-5: #00ffbb72;
     --accent-clr-6: #ff9794d5;
     --accent-clr-7: #f1d0af;
     --btn-clr-1: #75ed75;
@@ -33,7 +33,7 @@ body {
     font-family: var(--txt-2);
     margin: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     color-scheme: light;
 }
 #root {
@@ -48,11 +48,12 @@ a {
 }
 *, *::after, *::before {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 button {
-    outline: none;
-    margin: none;
-    padding: none;
+    outline: 0;
+    margin: 0;
+    padding: 0;
     border: none;
 }
 ::selection {
@@ -101,6 +102,10 @@ button {
 ::-webkit-scrollbar-thumb:active,
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--accent-clr-1);
+}
+
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded' !important;
 }
 
 /* main */

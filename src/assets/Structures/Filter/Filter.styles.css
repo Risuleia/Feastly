@@ -1,0 +1,59 @@
+.filter {
+    --background-clr: #929292;
+    --border-clr: #2a2a2a64;
+    --txt-clr: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    height: 35px;
+    width: max-content;
+    color: var(--txt-clr);
+    background-color: var(--background-clr);
+    padding: 10px;
+    padding-right: 2px;
+    border-radius: 100px;
+    border: 3px solid var(--border-clr);
+    cursor: pointer;
+    transition: filter 300ms ease-in;
+}
+.filter.primary {
+    --border-clr: var(--accent-clr-4);
+    --background-clr: var(--accent-clr-3);
+}
+.filter.active {
+    --background-clr: var(--accent-clr-5) !important;
+    --border-clr: transparent !important;
+    --txt-clr: #212121 !important;
+}
+.filter:hover,
+.filter:active,
+.filter:focus,
+.filter:focus-within {
+    filter: brightness(1.2);
+    transition: filter 300ms ease-in;
+}
+.filter-name {
+    display: inline-flex;
+}
+.filter-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 300ms linear;
+}
+.filter.active .filter-icon {
+    transform: rotate(90deg);
+    transition: transform 300ms linear;
+}
+
+.separator {
+    display: flex;
+    width: 2px;
+    height: 30px;
+    border-radius: 1ex;
+    align-self: stretch;
+    background-color: #4c4c4c;
+}
