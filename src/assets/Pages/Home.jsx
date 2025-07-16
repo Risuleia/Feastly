@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import bannerImg from '../../images/pasta.png'
 import openFridge from '../../images/openFridge.svg'
 
+import useRecipes from '../../Hooks/useRecipes'
+
+import trim from '../../Functions/trim.ts'
+
 import '../Styles/Home.css'
 
 function Home() {
+
+    const { recipes, loading, error } = useRecipes(6)
+
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    function scroll() {
+        let slide =  document.querySelector(`.item-capsule#slide-${activeSlide}`)
+        if (!slide) return
+        let y = slide.offsetTop;
+        let scrollElem = document.querySelector('.capsules-part')
+        if (!scrollElem) return
+        scrollElem.scrollTo(0, y)
+    }
+    
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setActiveSlide(prev => prev == 5 ? 0 : prev + 1)
+        }, 5000);
+        scroll()
+    }, [activeSlide])
 
     return (
         <motion.div
@@ -27,21 +52,40 @@ function Home() {
                 </div>
             </div>
             <div className="best-picks-section">
-                <div className="thumbnails-part">
-                    {[1,2,3,4,5,6].map(item => (
-                        <div className="item-thumbnail">
-                            {item.toString()}
-                        </div>
-                    ))}
-                </div>
-                <div className="capsules-part">
-                    <div className="capsule-scroll">
-                        {[1,2,3,4,5,6].map(item => (
-                            <div className="item-capsule">
-                                {item.toString()}
+                <div className="carousel" select='false'>
+                    <div className="thumbnails-part">
+                        {recipes?.map((item, index) => (
+                            <div key={index} className={`item-thumbnail${activeSlide == index ? ' active' : ''}`} select="false" onClick={() => setActiveSlide(index)}>
+                                <img src={item?.image} alt={item?.title} />
                             </div>
                         ))}
                     </div>
+                    <div className="capsules-part">
+                        <div className="capsule-scroll">
+                            {recipes?.map((item, index) => (
+                                <div id={`slide-${index}`} className="item-capsule">
+                                    <div className="item-capsule-background">
+                                        <img src={item?.image} alt={item?.title} />
+                                    </div>
+                                    <div className="item-capsule-overlay">
+                                        <div className="item-capsule-thumbnail">
+                                            <img src={item?.image} alt={item?.title} />
+                                        </div>
+                                        <Link to={`/recipes/${item?.id}`} className="item-capsule-title">{trim(item?.title, 40)}</Link>
+                                        <div className="item-capsule-diets" select="false">
+                                            {item?.diets?.map((diet, index) => (
+                                                <div key={index} className="item-capsule-diet">{diet}</div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {activeSlide == index && <div className="progress-bar"><span className="progress"></span></div>}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="text" select='false'>
+                    Draw inspiration from thousands of delicacies!
                 </div>
             </div>
             <div className="what-can-you-make-section" select="false">

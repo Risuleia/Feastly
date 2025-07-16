@@ -16,7 +16,7 @@ function Nav() {
                 <img src={logo} alt="Feastly" />
             </NavLink>
             <nav className="navbar">
-                <button className="nav-item add-button">
+                <button className="nav-item add-button" onClick={() => document.getElementById("add-modal").showModal()}>
                     <span className="material-symbols-rounded add-icon">add</span>
                     <span className="add-btn-text">Add</span>
                     <span className="pulse"></span>

@@ -1,0 +1,68 @@
+{
+    "diets": {
+        "type": "Diet",
+        "options": [
+            "gluten free",
+            "ketogenic",
+            "vegetarian",
+            "lacto-vegetarian",
+            "ovo-vegetarian",
+            "vegan",
+            "non-vegetarian",
+            "pescetarian",
+            "paleo",
+            "primal"
+        ]
+    },
+    "cuisines": {
+        "type": "Cuisines",
+        "options": [
+            "African",
+            "Asian",
+            "American",
+            "British",
+            "Cajun",
+            "Caribbean",
+            "Chinese",
+            "Eastern European",
+            "European",
+            "French",
+            "German",
+            "Greek",
+            "Indian",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Jewish",
+            "Korean",
+            "Latin American",
+            "Mediterranean",
+            "Mexican",
+            "Middle Eastern",
+            "Nordic",
+            "Southern",
+            "Spanish",
+            "Thai",
+            "Vietnamese"
+        ]
+    },
+    "meal_types": {
+        "type": "Meal Type",
+        "options": [
+            "main course",
+            "side dish",
+            "dessert",
+            "appetizer",
+            "salad",
+            "bread",
+            "breakfast",
+            "soup",
+            "beverage",
+            "sauce",
+            "marinade",
+            "fingerfood",
+            "snack",
+            "drink"
+        ]
+    }
+}

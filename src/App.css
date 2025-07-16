@@ -1,8 +1,7 @@
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
 
 /* base */
@@ -21,6 +20,7 @@
     --accent-clr-5: #00ffbb72;
     --accent-clr-6: #ff9794d5;
     --accent-clr-7: #f1d0af;
+    --accent-clr-8: #c7ff218b;
     --btn-clr-1: #75ed75;
     --btn-clr-2: #ef6363;
     --txt-1: Comfortaa;
@@ -36,8 +36,14 @@ body {
     scroll-behavior: smooth !important;
     color-scheme: light;
 }
-#root {
-    min-height: 100vh;
+body[data-animations="true"] * {
+    animation-play-state: running !important;
+}
+body[data-animations="false"] * {
+    animation-play-state: paused !important;
+}
+body * {
+    animation-play-state: inherit !important;
 }
 img {
     pointer-events: none !important;
@@ -87,6 +93,7 @@ button {
 
 .\@container {
     container-type: inline-size;
+    width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -115,6 +122,14 @@ button {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+#parallax {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
 }
 section {
     width: 100%;

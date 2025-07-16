@@ -2,12 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+import Searchbar from '../../Structures/Searchbar/Searchbar'
+import RecipeItem from '../../Structures/Recipe Item/RecipeItem'
+
+import useRecipes from '../../../Hooks/useRecipes'
+
 import dishes from '../../../images/dishes.png'
 
 import '../../Styles/Recipes.css'
-import Searchbar from '../../Structures/Searchbar/Searchbar'
 
 function Recipes() {
+
+    const { recipes, loading, error } = useRecipes(10);
 
     return (
         <motion.div
@@ -24,14 +30,22 @@ function Recipes() {
                 </div>
                 <div className="banner-text">
                     <span>Explore from a <span className='underlined' maskable="true">huge</span> variety of <span className="underlined">delicacies</span>!</span>
-                    <button onClick={() => document.querySelector('#searchbar').scrollIntoView()} className="material-symbols-rounded move-down-icon">double_arrow</button>
+                    <button
+                        onClick={(e) => {
+                            document.querySelector('.recipe-items').scrollIntoView();
+                            e.target.blur()
+                        }}
+                        className="material-symbols-rounded move-down-icon"
+                    >
+                        double_arrow
+                    </button>
                 </div>
             </div>
             <Searchbar />
             <div className="@container">
                 <div className="recipe-items">
-                    {[].map(item => (
-                        <RecipePage key={item.pid} item={item} cart={cart} setCart={setCart} />
+                    {recipes.map(item => (
+                        <RecipeItem key={item.id} item={item} />
                     ))}
                 </div>
             </div>

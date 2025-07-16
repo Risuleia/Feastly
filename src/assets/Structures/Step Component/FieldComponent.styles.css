@@ -1,0 +1,189 @@
+.field-component {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+.field-component .fields {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+.field-component .field-add-btn {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 100%;
+    background-color: var(--accent-clr-1);
+    cursor: pointer;
+    transition: filter 250ms linear;
+}
+.field-component .field-add-btn:hover,
+.field-component .field-add-btn:active,
+.field-component .field-add-btn:focus {
+    filter: brightness(.9);
+    transition: filter 250ms linear;
+}
+.field-component .field-add-btn span {
+    line-height: 1;
+    font-size: 2rem;
+}
+.field-component .input-container[data-type="amount"] {
+    max-width: 110px;
+    /* padding: 10px; */
+}
+.field-component .input-container[data-type="unit"] {
+    max-width: 65px;
+}
+.field-component .input-container[data-type="step"] {
+    width: 100%;
+    height: auto;
+}
+.field-component .input-container[data-type="step"] .input {
+    resize: vertical !important;
+    min-height: 25px;
+}
+.field-component .input-container .input {
+    font-size: .9rem !important;
+}
+
+.field-component .fields-preview {
+    background: linear-gradient(45deg, var(--accent-clr-5), var(--accent-clr-2));
+    padding: .8rem;
+    border-radius: 20px;
+    display: flex;
+}
+.field-component .fields-preview[data-type="ingredients"] {
+    flex-flow: row wrap;
+    gap: 10px;
+}
+.field-component .fields-preview[data-type="ingredients"] .field-record {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 6px;
+    border-radius: 1ex;
+    background: var(--accent-clr-8);
+    font-weight: 500;
+    color: #00000093;
+    box-shadow: 10px 10px 20px 3px #0000002e;
+}
+.field-component .fields-preview[data-type="ingredients"] .field-record .ingredient-amount,
+.field-component .fields-preview[data-type="ingredients"] .field-record .ingredient-unit {
+    color: #388db5;
+    font-weight: 600;
+}
+.field-component .fields-preview[data-type="ingredients"] .field-record .remove-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--accent-clr-6);
+    line-height: 1;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: filter 250ms linear;
+}
+.field-component .fields-preview[data-type="ingredients"] .field-record .remove-btn span {
+    font-size: 1.3rem;
+}
+
+.field-component .fields-preview[data-type="ingredients"] .field-record .remove-btn:hover {
+    filter: brightness(.9);
+    transition: filter 250ms linear;
+}
+
+
+.field-component .fields-preview[data-type="instructions"] {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.2rem;
+}
+.field-component .fields-preview[data-type="instructions"] .field-record {
+    display: inline-flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1rem;
+    background-color: var(--accent-clr-7);
+    position: relative;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.field-component .fields-preview[data-type="instructions"] .field-record .instruction-number {
+    display: inline-flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    line-height: 1;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    border-radius: 100%;
+    background: linear-gradient(45deg, var(--accent-clr-1), var(--accent-clr-2));
+    font-weight: 600;
+    color: #0000008e;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 35px 3px #0000005b;
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .instruction-step {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-wrap: wrap;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    padding: 10px;
+    font-weight: 500;
+    color: #000000a3;
+    background: none;
+    border: none;
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .field-record-buttons {
+    display: inline-flex;
+    gap: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(20%, -50%);
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--btn-clr);
+    line-height: 1;
+    padding: 2px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: filter 250ms linear;
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .remove-btn {
+    --btn-clr: var(--accent-clr-6)
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .edit-btn {
+    --btn-clr: #ffffffb0
+}
+.field-component .fields-preview[data-type="instructions"] .field-record .btn span {
+    font-size: 1.2rem;
+}
+
+.field-component .fields-preview[data-type="instructions"] .field-record .btn:hover {
+    filter: brightness(.9);
+    transition: filter 250ms linear;
+}

@@ -4,13 +4,15 @@
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 5rem;
+    top: 4.5rem;
     z-index: 100;
     gap: 3rem;
     background: linear-gradient(to bottom, #00000006, #00000030);
     backdrop-filter: blur(3px);
     padding-bottom: 1rem;
     border-radius: 0 0 20px 20px;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
 }
 
 .searchbox-container {
@@ -69,13 +71,13 @@
     padding: 10px;
     cursor: pointer;
     backdrop-filter: blur(5px);
-    transition: background-color 200ms linear;
+    transition: filter 200ms linear;
 }
 .searchbox-container .search-btn:hover,
 .searchbox-container .search-btn:active,
 .searchbox-container .search-btn:focus {
-    background-color: var(--accent-clr-3);
-    transition: background-color 200ms linear;
+    filter: brightness(1.3);
+    transition: filter 200ms linear;
 }
 .searchbox-container .search-btn span {
     color: var(--accent-clr-1);

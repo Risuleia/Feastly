@@ -114,8 +114,27 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: 4rem;
     margin-bottom: 4rem;
+}
+.best-picks-section .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    width: 50%;
+}
+.best-picks-section .text {
+    width: 100%;
+    font-size: 8rem;
+    font-family: var(--txt-3);
+    letter-spacing: .5px;
+    text-align: right;
+    line-height: .8;
+    background: linear-gradient(-45deg, #00000076, #92bc07);
+    background-clip: text;
+    color: transparent;
+    /* text-shadow: 8px 8px 25px #000000a3; */
 }
 .best-picks-section .thumbnails-part {
     display: flex;
@@ -131,16 +150,30 @@
     width: 65px;
     aspect-ratio: 1;
     border-radius: 20px;
-    border: 2px solid white;
+    border: 4px solid rgba(255, 255, 255, 0.17);
     background-color: #ccc;
+    overflow: hidden;
+    filter: brightness(.7);
+    transition: filter 250ms linear;
+    cursor: pointer;
+}
+.best-picks-section .thumbnails-part .item-thumbnail.active,
+.best-picks-section .thumbnails-part .item-thumbnail:not(.active):hover {
+    filter: brightness(1);
+    transition: filter 250ms linear;
+}
+.best-picks-section .thumbnails-part .item-thumbnail img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 .best-picks-section .capsules-part {
     display: flex;
     width: 100%;
     height: 430px;
     flex-direction: column;
-    /* background-color: red; */
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
 }
 .best-picks-section .capsules-part::-webkit-scrollbar {
@@ -162,7 +195,104 @@
     height: 430px;
     width: 100%;
     border-radius: 20px;
-    background-color: #ccc;
+    /* background-color: #ccc; */
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    /* transform: perspective(80vh) translate3d(0, 80vh, 80px) scale3d(1, 1, 1) rotateX(0) rotateY(0deg) rotateZ(0deg) skew(0, 0); */
+    /* transform: perspective(200vh) translate3d(0px, 80vh, 80vw) scale3d(1, 1, 1) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); */
+    will-change: transform;
+    /* animation: pop linear;
+    animation-timeline: scroll(); */
+}
+.best-picks-section .capsules-part .item-capsule .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.best-picks-section .capsules-part .item-capsule .progress-bar .progress {
+    width: 0;
+    position: relative;
+    height: 3px;
+    border-radius: 1ex;
+    background-color: rgba(255, 255, 255, 0.811);
+    animation: progress 5s linear forwards;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-background {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-background img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: .5rem;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    background-color: #00000063;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-capsule-thumbnail {
+    display: inline-flex;
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-thumbnail img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-capsule-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: right;
+    color: var(--txt-clr-3);
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-capsule-title:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 8px;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-capsule-diets {
+    display: inline-flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    padding: .5rem;
+    align-items: center;
+    justify-content: flex-end;
+    width: 80%;
+}
+.best-picks-section .capsules-part .item-capsule .item-capsule-overlay .item-capsule-diets .item-capsule-diet {
+    display: inline-flex;
+    text-transform: capitalize;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 10px;
+    border: 2px solid var(--accent-clr-2);
+    background: #81d7bc8b;
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 8px #0000007d;
 }
 
 .what-can-you-make-section {
@@ -172,7 +302,7 @@
     align-items: center;
     padding: 2rem;
     padding-bottom: 1rem;
-    background: linear-gradient(37deg, #a57373, #a3af8a);
+    background: linear-gradient(37deg, #a5737399, #a3af8ae8);
 }
 .what-can-you-make-section .section-image {
     display: inline-flex;
@@ -210,6 +340,7 @@
 }
 .what-can-you-make-section .section-text .section-main-link {
     display: inline-flex;
+    flex-flow: row wrap;
     font-size: 5.5vmin;
     gap: .8rem;
     margin-bottom: 2rem;
@@ -295,6 +426,16 @@
         background-size: 100% 100%;
     }
 }
+@keyframes pop {
+    to {
+        transform: perspective(80vh) translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+    }
+}
+@keyframes progress {
+    to {
+        width: 100%;
+    }
+}
 
 /* media queries */
 @media all and (max-width: 575px) {
@@ -324,6 +465,12 @@
         flex-direction: column;
         gap: 0;
     }
+    .best-picks-section .carousel {
+        width: 100%;
+    }
+    .best-picks-section .text {
+        display: none;
+    }
 }
 @media all and (max-width: 767px) and (min-width: 576px) {
     .home-banner .banner-text {
@@ -350,5 +497,11 @@
     .what-can-you-make-section .section-text .section-main-link {
         flex-direction: column;
         gap: 0;
+    }
+    .best-picks-section .carousel {
+        width: 100%;
+    }
+    .best-picks-section .text {
+        display: none;
     }
 }

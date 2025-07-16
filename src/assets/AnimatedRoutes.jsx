@@ -8,6 +8,7 @@ import Login from './Pages/Auth/Login'
 import SignUp from  './Pages/Auth/SignUp'
 import Recipes from './Pages/Recipes/Recipes'
 import RecipePage from './Pages/Recipes/RecipePage'
+import AuthProvider from '../Contexts/AuthContext'
 
 function AnimatedRoutes() {
 
@@ -15,17 +16,19 @@ function AnimatedRoutes() {
 
     return (
         <AnimatePresence>
-            <Routes location={location} key={location.pathname}>
-                <Route path="/" exact element={<Home />} />
-                <Route path="/recipes">
-                    <Route index element={<Recipes />} />
-                    <Route path=":pid" element={<RecipePage />} />
-                </Route>
-                
-                <Route path="/dashboard" exact element={<Dashboard />} />
-                <Route path="/login" exact element={<Login />} />
-                <Route path="/signup" exact element={<SignUp />} />
-            </Routes>
+            <AuthProvider>
+                <Routes location={location} key={location.pathname}>
+                    <Route path="/" exact element={<Home />} />
+                    <Route path="/recipes">
+                        <Route index element={<Recipes />} />
+                        <Route path=":rid" element={<RecipePage />} />
+                    </Route>
+                    
+                    <Route path="/dashboard" exact element={<Dashboard />} />
+                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/signup" exact element={<SignUp />} />
+                </Routes>
+            </AuthProvider>
         </AnimatePresence>
     )
 }
